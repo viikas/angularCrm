@@ -1,0 +1,135 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+  <form name="artfeeForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Form</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+          
+          <md-input-container class="md-block">
+            <label>Locations</label>
+            <input md-maxlength="30" required name="Locations" ng-model="artfee.location">
+            <div ng-messages="artfeeForm.location.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The location has to be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Locations</label>
+            <input md-maxlength="30" required name="Locations" ng-model="artfee.description">
+            <div ng-messages="artfeeForm.description.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The location has to be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+          
+          <md-input-container class="md-block">
+            <label>Color One(USD)</label>
+            <input type="number" name="colorOne" ng-model="artfee.colorOne" required min="100"
+                   max="4999" ng-pattern="/^1234$/" />
+            <div ng-messages="artfee.colorOne.$error" >
+              <div ng-message="required">
+                You've got to charge something!
+              </div>
+              <div ng-message="min">
+                You should charge at least $100 an hour.
+              </div>
+              <div ng-message="pattern">
+                You should charge exactly $1,234.
+              </div>
+              <div ng-message="max">
+                {{artfee.colorOne.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+                doubt event Bill Clinton could afford that.
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Color Two (USD)</label>
+            <input required type="number" name="rate" ng-model="artfee.colortwo" min="100"
+                   max="4999" ng-pattern="/^1234$/" />
+            <div ng-messages="artfee.colortwo.$error">
+              <div ng-message="required">
+                You've got to charge something!
+              </div>
+              <div ng-message="min">
+                You should charge at least $100 an hour.
+              </div>
+              <div ng-message="pattern">
+                You should charge exactly $1,234.
+              </div>
+              <div ng-message="max">
+                {{artfee.colortwo.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+                doubt event Bill Clinton could afford that.
+              </div>
+            </div>
+          </md-input-container>
+          
+          <md-input-container class="md-block">
+            <label>Color Three (USD)</label>
+            <input required type="number" name="rate" ng-model="artfee.colorthree" min="100"
+                   max="4999" ng-pattern="/^1234$/" />
+            <div ng-messages="artfee.colorthree.$error">
+              <div ng-message="required">
+                You've got to charge something!
+              </div>
+              <div ng-message="min">
+                You should charge at least $100 an hour.
+              </div>
+              <div ng-message="pattern">
+                You should charge exactly $1,234.
+              </div>
+              <div ng-message="max">
+                {{artfee.colorthree.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+                doubt event Bill Clinton could afford that.
+              </div>
+            </div>
+          </md-input-container>
+          
+          <md-input-container class="md-block">
+            <label>Color Four (USD)</label>
+            <input required type="number" name="rate" ng-model="artfee.colorfour" min="100"
+                   max="4999" ng-pattern="/^1234$/" />
+            <div ng-messages="artfee.colorfour.$error">
+              <div ng-message="required">
+                You've got to charge something!
+              </div>
+              <div ng-message="min">
+                You should charge at least $100 an hour.
+              </div>
+              <div ng-message="pattern">
+                You should charge exactly $1,234.
+              </div>
+              <div ng-message="max">
+                {{artfee.colorfour.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+                doubt event Bill Clinton could afford that.
+              </div>
+            </div>
+          </md-input-container>
+          
+          
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+       Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;">
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

@@ -1,0 +1,46 @@
+<md-toolbar class="md-table-toolbar md-default">
+  <div class="md-toolbar-tools">
+    <span>Art Fee</span>
+
+  </div>
+
+</md-toolbar>
+
+
+<!-- exact table from live demo -->
+<md-table-container ng-controller="artFeeController">
+  <table md-table md-row-select ng-model="selected" md-progress="promise">
+    <thead md-head md-order="query.order" md-on-reorder="onReorder">
+      <tr md-row>
+        <th md-column md-order-by="nameToLower"><span>Location</span></th>
+        <th md-column md-numeric>1-color</th>
+        <th md-column md-numeric>2-color</th>
+        <th md-column md-numeric>3-color</th>
+        <th md-column md-numeric>4-color</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="location" md-select-id="{{location.name}}" md-auto-select ng-repeat="location in locations">
+        <td md-cell>{{location.location}}</td>
+        <td md-cell>{{location.colorOne}}</td>
+        <td md-cell>{{location.colorTwo}}</td>
+        <td md-cell>{{location.colorThree}}</td>
+        <td md-cell>{{location.colorFour}}</td>      
+      </tr>
+    </tbody>
+  </table>
+
+<md-button class="md-raised" aria-label="Add" ng-click="showAddForm($event)" flex="100" flex-gt-md="auto">
+          Add
+</md-button>
+<div ng-if="status">
+    <br/>
+    <b layout="row" layout-align="center center" class="md-padding">
+      {{status}}
+    </b>
+  </div>
+</md-table-container>
+
+<!-- 
+<md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{locations.count}}" md-on-paginate="onPaginate" md-page-select></md-table-pagination>
+-->
